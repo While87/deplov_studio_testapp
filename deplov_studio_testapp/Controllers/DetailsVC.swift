@@ -8,18 +8,25 @@
 import UIKit
 
 class DetailsVC: UIViewController {
-    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var product: Product?
     let downloadManager = DownloadManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadManager.delegate = self
         downloadManager.getImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryTitle.text = product?.category
+        productTitle.text = product?.name
     }
 }
 

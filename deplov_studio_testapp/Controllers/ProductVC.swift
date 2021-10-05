@@ -9,6 +9,8 @@ import UIKit
 
 class ProductVC: UIViewController {
     
+    var products: [Product] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,14 +26,14 @@ class ProductVC: UIViewController {
 //MARK: - TableView delegate methods
 extension ProductVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Product", for: indexPath)
         var content = cell.defaultContentConfiguration()
         
-        content.text = "My Product"
+        content.text = products[indexPath.row].name
         
         cell.contentConfiguration = content
         return cell
@@ -41,7 +43,9 @@ extension ProductVC: UITableViewDataSource, UITableViewDelegate {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "Details")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "Details") as! DetailsVC
+        
+        viewController.product = products[indexPath.row]
         
         navigationController?.pushViewController(viewController, animated: true)
     }
