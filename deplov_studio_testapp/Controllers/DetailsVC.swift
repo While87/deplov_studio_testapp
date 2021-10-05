@@ -12,6 +12,6 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.prefersLargeTitles = false
+       // navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
