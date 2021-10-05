@@ -8,10 +8,37 @@
 import UIKit
 
 class DetailsVC: UIViewController {
-
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var categoryTitle: UILabel!
+    @IBOutlet weak var productTitle: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let downloadManager = DownloadManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadManager.delegate = self
+        downloadManager.getImage()
+    }
+}
 
-       // navigationController?.navigationBar.prefersLargeTitles = false
+//MARK: - DownloadManager delegate methods
+extension DetailsVC: DownloadManagerDelegate {
+    func imageDidDownload(result: Result<UIImage, Error>) {
+        activityIndicator.stopAnimating()
+        
+        switch result {
+        case .success(let image):
+            imageView.image = image
+        case .failure(let error): showAlert(message: error.localizedDescription)
+        }
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Внимание", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Печалька", style: .destructive, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

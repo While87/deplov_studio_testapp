@@ -17,10 +17,9 @@ class CategoryVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
-    
 }
 
+//MARK: - TableView delegate methods
 extension CategoryVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -44,6 +43,4 @@ extension CategoryVC: UITableViewDataSource, UITableViewDelegate {
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    
 }
