@@ -9,7 +9,7 @@ import UIKit
 
 class ProductVC: UIViewController {
     
-    var products: [Product] = []
+    var products: [String: [String]] = [:]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,24 +18,19 @@ class ProductVC: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
-    
 }
 
 //MARK: - TableView delegate methods
 extension ProductVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return products.first?.value.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Product", for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        cell.textLabel?.text = products.first?.value[indexPath.row]
         
-        content.text = products[indexPath.row].name
-        
-        cell.contentConfiguration = content
         return cell
     }
     
@@ -45,9 +40,9 @@ extension ProductVC: UITableViewDataSource, UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "Details") as! DetailsVC
         
-        viewController.product = products[indexPath.row]
+        viewController.productCategory = products.first?.key
+        viewController.productName = products.first?.value[indexPath.row]
         
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
 }

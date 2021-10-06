@@ -14,7 +14,8 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var product: Product?
+    var productCategory: String?
+    var productName: String?
     let downloadManager = DownloadManager()
     
     override func viewDidLoad() {
@@ -25,8 +26,8 @@ class DetailsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        categoryTitle.text = product?.category
-        productTitle.text = product?.name
+        categoryTitle.text = productCategory
+        productTitle.text = productName
     }
 }
 
