@@ -16,7 +16,6 @@
 		94C047E3270C5CDB00858C2C /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C047E2270C5CDB00858C2C /* ProductVC.swift */; };
 		94C047E5270C5CF100858C2C /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C047E4270C5CF100858C2C /* DetailsVC.swift */; };
 		94C047E8270C74E900858C2C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C047E7270C74E900858C2C /* DownloadManager.swift */; };
-		94C047EA270C868800858C2C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C047E9270C868800858C2C /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		94C047E2270C5CDB00858C2C /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		94C047E4270C5CF100858C2C /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		94C047E7270C74E900858C2C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
-		94C047E9270C868800858C2C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				94C047E7270C74E900858C2C /* DownloadManager.swift */,
-				94C047E9270C868800858C2C /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,7 +185,6 @@
 				94C047CC270C571700858C2C /* AppDelegate.swift in Sources */,
 				94C047CE270C571700858C2C /* SceneDelegate.swift in Sources */,
 				94C047E5270C5CF100858C2C /* DetailsVC.swift in Sources */,
-				94C047EA270C868800858C2C /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
